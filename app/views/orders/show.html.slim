@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Client name:
+  = @order.client_name
+
+=> link_to "Edit", edit_order_path(@order)
+'|
+=< link_to "Back", orders_path

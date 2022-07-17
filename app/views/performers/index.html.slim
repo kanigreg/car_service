@@ -1,0 +1,21 @@
+h1 Listing performers
+
+table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @performers.each do |performer|
+      tr
+        td = performer.name
+        td = link_to "Show", performer
+        td = link_to "Edit", edit_performer_path(performer)
+        td = link_to "Destroy", performer, data: {confirm: "Are you sure?"}, method: :delete
+
+br
+
+= link_to "New Performer", new_performer_path

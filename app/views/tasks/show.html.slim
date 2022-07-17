@@ -1,0 +1,17 @@
+p#notice = notice
+
+p
+  strong Service:
+  = @task.service
+
+p
+  strong Performer:
+  = @task.performer
+
+p
+  strong Order:
+  = @task.order
+
+=> link_to "Edit", edit_task_path(@task)
+'|
+=< link_to "Back", tasks_path

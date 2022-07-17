@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @performer.name
+
+=> link_to "Edit", edit_performer_path(@performer)
+'|
+=< link_to "Back", performers_path
