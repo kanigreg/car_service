@@ -54,6 +54,5 @@ ActiveRecord::Schema.define(version: 2022_07_17_060350) do
 
   add_foreign_key "services", "service_categories"
   add_foreign_key "tasks", "orders"
-  add_foreign_key "tasks", "performers"
   add_foreign_key "tasks", "services"
 end

@@ -63,3 +63,23 @@ div.actions {
 
 label {
   display: block; }
+
+nav {
+  display: flex;
+}
+
+.nav-item {
+  margin: 5px;
+}
+
+.form_nested {
+  display: flex;
+  margin: 5px;
+}
+.container {
+  display: flex;
+}
+
+.sidebar {
+  padding-left: 30px;
+}

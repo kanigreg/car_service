@@ -1,21 +1,37 @@
-h1 Listing orders
+.container
+  div
+    h1 Listing orders
 
-table
-  thead
-    tr
-      th Client name
-      th
-      th
-      th
+    table
+      thead
+        tr
+            th Client name
+            th Order date
+            th Service category
+            th Service
+            th
+            th
+            th
 
-  tbody
-    - @orders.each do |order|
-      tr
-        td = order.client_name
-        td = link_to "Show", order
-        td = link_to "Edit", edit_order_path(order)
-        td = link_to "Destroy", order, data: {confirm: "Are you sure?"}, method: :delete
+      tbody
+        - @orders.each do |order|
+          tr
+            td = order.client_name
+            td = I18n.l(order.created_at, format: :long)
+            td
+            td
+            td = link_to "Show", order
+            td = link_to "Edit", edit_order_path(order)
+            td = link_to "Destroy", order, data: {confirm: "Are you sure?"}, method: :delete
+          - order.tasks.each do |task|
+            tr
+              td
+              td
+              td = task.service.service_category.name
+              td = task.service.name
 
-br
+    br
 
-= link_to "New Order", new_order_path
+    = link_to "New Order", new_order_path
+  .sidebar
+    = render partial: 'filter', locals: { q: @q }

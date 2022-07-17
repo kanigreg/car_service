@@ -2,15 +2,15 @@ p#notice = notice
 
 p
   strong Service:
-  = @task.service
+  = @task.service.name
 
 p
   strong Performer:
-  = @task.performer
+  = @task.performer.name
 
 p
   strong Order:
-  = @task.order
+  = @task.order.id
 
 => link_to "Edit", edit_task_path(@task)
 '|

@@ -3,6 +3,8 @@ p#notice = notice
 p
   strong Client name:
   = @order.client_name
+- @order.tasks.each do |task|
+  p = task
 
 => link_to "Edit", edit_order_path(@order)
 '|

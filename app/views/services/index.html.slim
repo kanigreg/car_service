@@ -13,7 +13,7 @@ table
     - @services.each do |service|
       tr
         td = service.name
-        td = service.service_category
+        td = service.service_category.name
         td = link_to "Show", service
         td = link_to "Edit", edit_service_path(service)
         td = link_to "Destroy", service, data: {confirm: "Are you sure?"}, method: :delete

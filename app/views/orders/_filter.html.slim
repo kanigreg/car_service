@@ -1,0 +1,19 @@
+= search_form_for(q) do |f|
+  .form-inputs
+    = f.label 'Client name'
+    = f.search_field :client_name_cont
+
+    = f.label 'Order date greater then'
+    = f.search_field :created_at_gt
+
+    = f.label 'Order date less then'
+    = f.search_field :created_at_gt
+
+    = f.label 'Service'
+    = f.search_field :tasks_service_name_cont
+
+    = f.label 'Service category'
+    = f.search_field :tasks_service_service_category_name_cont
+
+  .form-actions
+    = f.submit 'Filter'
