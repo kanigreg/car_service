@@ -5,25 +5,25 @@
     table
       thead
         tr
-            th Client name
-            th Order date
-            th Service category
-            th Service
+            th = sort_link @q, :order_client_name
+            th = sort_link @q, :order_created_at, 'Order date'
+            th = sort_link @q, :service_service_category_name, 'Service categroy'
+            th = sort_link @q, :service_name, 'Service'
             th
             th
             th
 
       tbody
-        - @orders.each do |order|
+        - @orders.each do |order, tasks|
           tr
             td = order.client_name
-            td = I18n.l(order.created_at, format: :long)
+            td = order.created_at.strftime("%d %b %Y")
             td
             td
             td = link_to "Show", order
             td = link_to "Edit", edit_order_path(order)
             td = link_to "Destroy", order, data: {confirm: "Are you sure?"}, method: :delete
-          - order.tasks.each do |task|
+          - tasks.each do |task|
             tr
               td
               td

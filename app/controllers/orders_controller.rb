@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @q = Order.ransack(params[:q])
-    @orders = @q.result.includes(tasks: { service: :service_category})
+    @q = Task.ransack(params[:q])
+    @orders = @q.result.includes(:order, { service: :service_category }).group_by(&:order)
   end
 
   # GET /orders/1
@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order.tasks.build
   end
 
   # GET /orders/1/edit
@@ -54,6 +55,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:client_name)
+      params.require(:order).permit(:client_name, tasks_attributes: %i[id service_id performer_id])
     end
 end

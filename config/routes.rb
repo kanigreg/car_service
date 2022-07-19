@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: 'orders#index'
 
-  resources :tasks
   resources :performers
   resources :services
   resources :service_categories

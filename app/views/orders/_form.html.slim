@@ -4,11 +4,13 @@
 
   .form-inputs
     = f.input :client_name
-    - @order.tasks.each do |task|
-      = f.simple_fields_for :tasks, task do |form|
-        .form_nested
-          = form.association :service
-          = form.association :performer
+      - @order.tasks.each do |task|
+        = f.simple_fields_for :tasks, task do |form|
+          .form_nested
+            = form.association :service
+            = form.association :performer
+    .form-actions
+      button
 
 
   .form-actions
